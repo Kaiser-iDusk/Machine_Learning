@@ -34,11 +34,16 @@ st.title("Spam e-mail Filter")
 classifier = SpamClassifier()
 
 message = st.text_input("Enter Your e-mail", "")
+btn = st.button("Predict")
 
-out = None
-out = classifier.predict([message])
+if btn:
+  out = None
+  out = classifier.predict([message])
 
-if int(out[0]) == 1:
-  st.subheader(f"The e-mail is a spam")
+  if int(out[0]) == 1:
+    st.subheader(f"The e-mail is a spam")
+  else:
+    st.subheader(f"This e-mail is not a spam")
+
 else:
-  st.subheader(f"This e-mail is not a spam")
+   st.write("Enter an SMS and it will predict whether it is spam or not.")
