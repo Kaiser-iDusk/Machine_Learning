@@ -11,7 +11,7 @@ class SpamClassifier:
     def __init__(self):
         self.model = MultinomialNB()
         self.vec = CountVectorizer(encoding='latin-1', stop_words='english')
-        df = pd.read_csv('Spam_Filter/spam.csv', encoding='latin-1')
+        df = pd.read_csv('Spam_Filter/sms_spam/spam.csv', encoding='latin-1')
         data = df[['v2', 'v1']].rename(columns={'v2': 'text', 'v1': 'label'})
         enc = LabelEncoder()
         data['label'] = enc.fit_transform(data['label'])
